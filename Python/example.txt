@@ -1,5 +1,2 @@
-This is the new content of the file
-and this is the second line
-This is the appended linefirst line
-second line
-third line
+Hello, World!
+This is the second line

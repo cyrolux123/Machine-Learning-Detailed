@@ -1,3 +1,5 @@
-Hello How are you?
-I am fine
-Welcome to the Python
+This is the new content of the file
+and this is the second line
+This is the appended linefirst line
+second line
+third line
