@@ -9,3 +9,4 @@ scikit-learn
 bs4
 flask
 streamlit
+sklearn
