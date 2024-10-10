@@ -154,8 +154,8 @@ def compile_file(fullname, ddir=None, force=False, rx=None, quiet=0,
                           "in combination with stripdir or prependdir"))
 
     success = True
-    if quiet < 2 and isinstance(fullname, os.PathLike):
-        fullname = os.fspath(fullname)
+    fullname = os.fspath(fullname)
+    stripdir = os.fspath(stripdir) if stripdir is not None else None
     name = os.path.basename(fullname)
 
     dfile = None
@@ -367,9 +367,9 @@ def main():
                               'environment variable is set, and '
                               '"timestamp" otherwise.'))
     parser.add_argument('-o', action='append', type=int, dest='opt_levels',
-                        help=('Optimization levels to run compilation with.'
-                              'Default is -1 which uses optimization level of'
-                              'Python interpreter itself (specified by -O).'))
+                        help=('Optimization levels to run compilation with. '
+                              'Default is -1 which uses the optimization level '
+                              'of the Python interpreter itself (see -O).'))
     parser.add_argument('-e', metavar='DIR', dest='limit_sl_dest',
                         help='Ignore symlinks pointing outsite of the DIR')
     parser.add_argument('--hardlink-dupes', action='store_true',

@@ -67,7 +67,7 @@ class Manifest:
     def add(self, item):
         if item.name in self.contents:
             # We assume that stable ABI items do not share names,
-            # even if they're diferent kinds (e.g. function vs. macro).
+            # even if they're different kinds (e.g. function vs. macro).
             raise ValueError(f'duplicate ABI item {item.name}')
         self.contents[item.name] = item
 
@@ -119,6 +119,8 @@ class ABIItem:
     contents: list = dataclasses.field(default_factory=list)
     abi_only: bool = False
     ifdef: str = None
+    struct_abi_kind: str = None
+    members: list = None
 
     KINDS = frozenset({
         'struct', 'function', 'macro', 'data', 'const', 'typedef',
@@ -173,6 +175,15 @@ def parse_manifest(file):
             if parent.kind not in {'function', 'data'}:
                 raise_error(f'{kind} cannot go in {parent.kind}')
             parent.abi_only = True
+        elif kind in {'members', 'full-abi', 'opaque'}:
+            if parent.kind not in {'struct'}:
+                raise_error(f'{kind} cannot go in {parent.kind}')
+            if prev := getattr(parent, 'struct_abi_kind', None):
+                raise_error(
+                    f'{parent.name} already has {prev}, cannot add {kind}')
+            parent.struct_abi_kind = kind
+            if kind == 'members':
+                parent.members = content.split()
         else:
             raise_error(f"unknown kind {kind!r}")
         levels.append((entry, level))
@@ -246,7 +257,9 @@ REST_ROLES = {
 def gen_doc_annotations(manifest, args, outfile):
     """Generate/check the stable ABI list for documentation annotations"""
     writer = csv.DictWriter(
-        outfile, ['role', 'name', 'added', 'ifdef_note'], lineterminator='\n')
+        outfile,
+        ['role', 'name', 'added', 'ifdef_note', 'struct_abi_kind'],
+        lineterminator='\n')
     writer.writeheader()
     for item in manifest.select(REST_ROLES.keys(), include_abi_only=False):
         if item.ifdef:
@@ -257,7 +270,13 @@ def gen_doc_annotations(manifest, args, outfile):
             'role': REST_ROLES[item.kind],
             'name': item.name,
             'added': item.added,
-            'ifdef_note': ifdef_note})
+            'ifdef_note': ifdef_note,
+            'struct_abi_kind': item.struct_abi_kind})
+        for member_name in item.members or ():
+            writer.writerow({
+                'role': 'member',
+                'name': f'{item.name}.{member_name}',
+                'added': item.added})
 
 def generate_or_check(manifest, args, path, func):
     """Generate/check a file with a single generator
@@ -295,7 +314,7 @@ def do_unixy_check(manifest, args):
     present_macros = gcc_get_limited_api_macros(['Include/Python.h'])
     feature_defines = manifest.feature_defines & present_macros
 
-    # Check that we have all neded macros
+    # Check that we have all needed macros
     expected_macros = set(
         item.name for item in manifest.select({'macro'})
     )
@@ -412,7 +431,7 @@ def binutils_check_library(manifest, library, expected_symbols, dynamic):
 def gcc_get_limited_api_macros(headers):
     """Get all limited API macros from headers.
 
-    Runs the preprocesor over all the header files in "Include" setting
+    Runs the preprocessor over all the header files in "Include" setting
     "-DPy_LIMITED_API" to the correct value for the running version of the
     interpreter and extracting all macro definitions (via adding -dM to the
     compiler arguments).
@@ -449,7 +468,7 @@ def gcc_get_limited_api_macros(headers):
 def gcc_get_limited_api_definitions(headers):
     """Get all limited API definitions from headers.
 
-    Run the preprocesor over all the header files in "Include" setting
+    Run the preprocessor over all the header files in "Include" setting
     "-DPy_LIMITED_API" to the correct value for the running version of the
     interpreter.
 

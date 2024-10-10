@@ -1,0 +1,67 @@
+{
+  "build": "hd77b12b_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [],
+  "depends": [
+    "vc >=14.1,<15.0a0",
+    "vs2015_runtime >=14.16.27012,<15.0a0"
+  ],
+  "extracted_package_dir": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\lerc-3.0-hd77b12b_0",
+  "files": [
+    "Library/bin/Lerc.dll",
+    "Library/include/Lerc_c_api.h",
+    "Library/include/Lerc_types.h",
+    "Library/lib/Lerc.lib",
+    ".nonadmin"
+  ],
+  "fn": "lerc-3.0-hd77b12b_0.conda",
+  "license": "Apache-2.0",
+  "link": {
+    "source": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\lerc-3.0-hd77b12b_0",
+    "type": 1
+  },
+  "md5": "f90216a0e38142a29c2693d4dad13fbe",
+  "name": "lerc",
+  "package_tarball_full_path": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\lerc-3.0-hd77b12b_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Library/bin/Lerc.dll",
+        "path_type": "hardlink",
+        "sha256": "f1aa5f0105b45676f149e9eff012d46a96399646c8518458c6c639721243262d",
+        "sha256_in_prefix": "f1aa5f0105b45676f149e9eff012d46a96399646c8518458c6c639721243262d",
+        "size_in_bytes": 385024
+      },
+      {
+        "_path": "Library/include/Lerc_c_api.h",
+        "path_type": "hardlink",
+        "sha256": "c0f0a3e8a91dd4e9727bb363153096132b601338123847308cdd8bf683fc700b",
+        "sha256_in_prefix": "c0f0a3e8a91dd4e9727bb363153096132b601338123847308cdd8bf683fc700b",
+        "size_in_bytes": 11652
+      },
+      {
+        "_path": "Library/include/Lerc_types.h",
+        "path_type": "hardlink",
+        "sha256": "2e2b19cb5d049f9bbebe2f3acd8be2ab920176cd1f48dea70dcc6c91e19b6249",
+        "sha256_in_prefix": "2e2b19cb5d049f9bbebe2f3acd8be2ab920176cd1f48dea70dcc6c91e19b6249",
+        "size_in_bytes": 939
+      },
+      {
+        "_path": "Library/lib/Lerc.lib",
+        "path_type": "hardlink",
+        "sha256": "f0635c00263ac040a8fc9e7e31b13384fee127d3f13477e9d3ab17cba0037778",
+        "sha256_in_prefix": "f0635c00263ac040a8fc9e7e31b13384fee127d3f13477e9d3ab17cba0037778",
+        "size_in_bytes": 3062
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "e5f3db3a585bac3c94c506c3d6d3a94b6333511237ab470cb30b3cee6971881f",
+  "size": 123350,
+  "subdir": "win-64",
+  "timestamp": 1635523278000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/lerc-3.0-hd77b12b_0.conda",
+  "version": "3.0"
+}

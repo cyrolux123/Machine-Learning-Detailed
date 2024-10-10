@@ -1454,13 +1454,7 @@ class TestTimedeltaArraylikeMulDivOps:
     def test_td64arr_mul_tdlike_scalar_raises(self, two_hours, box_with_array):
         rng = timedelta_range("1 days", "10 days", name="foo")
         rng = tm.box_expected(rng, box_with_array)
-        msg = "|".join(
-            [
-                "argument must be an integer",
-                "cannot use operands with types dtype",
-                "Cannot multiply with",
-            ]
-        )
+        msg = "argument must be an integer|cannot use operands with types dtype"
         with pytest.raises(TypeError, match=msg):
             rng * two_hours
 

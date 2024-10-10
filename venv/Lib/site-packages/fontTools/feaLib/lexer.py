@@ -269,7 +269,7 @@ class IncludingLexer(object):
             fileobj, closing = file_or_path, False
         else:
             filename, closing = file_or_path, True
-            fileobj = open(filename, "r", encoding="utf-8-sig")
+            fileobj = open(filename, "r", encoding="utf-8")
         data = fileobj.read()
         filename = getattr(fileobj, "name", None)
         if closing:

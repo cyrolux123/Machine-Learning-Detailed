@@ -1,0 +1,12 @@
+prefix=c:/ML Nabin/venv/Library
+exec_prefix=c:/ML Nabin/venv/Library
+libdir=c:/ML Nabin/venv/Library/lib
+includedir=c:/ML Nabin/venv/Library/include/libpng16
+
+Name: libpng
+Description: Loads and saves PNG files
+Version: 1.6.39
+Requires.private: zlib
+Libs: -L${libdir} -lpng16
+Libs.private: -lz
+Cflags: -I${includedir}

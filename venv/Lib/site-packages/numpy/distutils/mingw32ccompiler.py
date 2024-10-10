@@ -24,13 +24,7 @@ from numpy.distutils import log
 
 import distutils.cygwinccompiler
 from distutils.unixccompiler import UnixCCompiler
-
-try:
-    from distutils.msvccompiler import get_build_version as get_build_msvc_version
-except ImportError:
-    def get_build_msvc_version():
-        return None
-
+from distutils.msvccompiler import get_build_version as get_build_msvc_version
 from distutils.errors import UnknownFileError
 from numpy.distutils.misc_util import (msvc_runtime_library,
                                        msvc_runtime_version,

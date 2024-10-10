@@ -1,0 +1,10 @@
+prefix=c:/ML Nabin/venv/Library
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libjpeg
+Description: Reads and writes JPEG files
+Version: ..0
+Libs: -L${libdir} -ljpeg
+Cflags: -I${includedir}

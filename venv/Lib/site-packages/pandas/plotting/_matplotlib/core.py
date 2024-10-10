@@ -547,7 +547,7 @@ class MPLPlot(ABC):
                 new_ax.set_yscale("log")
             elif self.logy == "sym" or self.loglog == "sym":
                 new_ax.set_yscale("symlog")
-            return new_ax
+            return new_ax  # type: ignore[return-value]
 
     @final
     @cache_readonly
@@ -893,13 +893,7 @@ class MPLPlot(ABC):
         elif self.subplots and self.legend:
             for ax in self.axes:
                 if ax.get_visible():
-                    with warnings.catch_warnings():
-                        warnings.filterwarnings(
-                            "ignore",
-                            "No artists with labels found to put in legend.",
-                            UserWarning,
-                        )
-                        ax.legend(loc="best")
+                    ax.legend(loc="best")
 
     @final
     @staticmethod

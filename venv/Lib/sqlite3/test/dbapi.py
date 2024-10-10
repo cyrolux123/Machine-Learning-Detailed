@@ -381,6 +381,14 @@ class CursorTests(unittest.TestCase):
         self.cu.executemany("insert into test(name) values (?)", [(1,), (2,), (3,)])
         self.assertEqual(self.cu.rowcount, 3)
 
+    @unittest.skipIf(sqlite.sqlite_version_info < (3, 35, 0),
+                     "Requires SQLite 3.35.0 or newer")
+    def test_rowcount_update_returning(self):
+        # gh-93421: rowcount is updated correctly for UPDATE...RETURNING queries
+        self.cu.execute("update test set name='bar' where name='foo' returning 1")
+        self.assertEqual(self.cu.fetchone()[0], 1)
+        self.assertEqual(self.cu.rowcount, 1)
+
     def test_total_changes(self):
         self.cu.execute("insert into test(name) values ('foo')")
         self.cu.execute("insert into test(name) values ('foo')")
@@ -454,7 +462,7 @@ class CursorTests(unittest.TestCase):
         self.assertEqual(row, None)
 
     def test_array_size(self):
-        # must default ot 1
+        # must default to 1
         self.assertEqual(self.cu.arraysize, 1)
 
         # now set to 2

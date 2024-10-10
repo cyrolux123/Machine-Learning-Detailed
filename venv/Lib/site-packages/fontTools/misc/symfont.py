@@ -76,16 +76,16 @@ class GreenPen(BasePen):
         self.value = 0
 
     def _moveTo(self, p0):
-        self._startPoint = p0
+        self.__startPoint = p0
 
     def _closePath(self):
         p0 = self._getCurrentPoint()
-        if p0 != self._startPoint:
-            self._lineTo(self._startPoint)
+        if p0 != self.__startPoint:
+            self._lineTo(self.__startPoint)
 
     def _endPath(self):
         p0 = self._getCurrentPoint()
-        if p0 != self._startPoint:
+        if p0 != self.__startPoint:
             # Green theorem is not defined on open contours.
             raise NotImplementedError
 
@@ -145,18 +145,19 @@ class %s(BasePen):
     print(
         """
 	def _moveTo(self, p0):
-		self._startPoint = p0
+		self.__startPoint = p0
 
 	def _closePath(self):
 		p0 = self._getCurrentPoint()
-		if p0 != self._startPoint:
-			self._lineTo(self._startPoint)
+		if p0 != self.__startPoint:
+			self._lineTo(self.__startPoint)
 
 	def _endPath(self):
 		p0 = self._getCurrentPoint()
-		if p0 != self._startPoint:
+		if p0 != self.__startPoint:
+			# Green theorem is not defined on open contours.
 			raise OpenContourError(
-							"Glyph statistics is not defined on open contours."
+							"Green theorem is not defined on open contours."
 			)
 """,
         end="",

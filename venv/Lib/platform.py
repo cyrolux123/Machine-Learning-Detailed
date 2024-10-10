@@ -781,6 +781,8 @@ class uname_result(
     except when needed.
     """
 
+    _fields = ('system', 'node', 'release', 'version', 'machine', 'processor')
+
     @functools.cached_property
     def processor(self):
         return _unknown_as_blank(_Processor.get())
@@ -794,7 +796,7 @@ class uname_result(
     @classmethod
     def _make(cls, iterable):
         # override factory to affect length check
-        num_fields = len(cls._fields)
+        num_fields = len(cls._fields) - 1
         result = cls.__new__(cls, *iterable)
         if len(result) != num_fields + 1:
             msg = f'Expected {num_fields} arguments, got {len(result)}'
@@ -808,7 +810,7 @@ class uname_result(
         return len(tuple(iter(self)))
 
     def __reduce__(self):
-        return uname_result, tuple(self)[:len(self._fields)]
+        return uname_result, tuple(self)[:len(self._fields) - 1]
 
 
 _uname_cache = None
@@ -964,7 +966,7 @@ def processor():
 ### Various APIs for extracting information from sys.version
 
 _sys_version_parser = re.compile(
-    r'([\w.+]+)\s*(?:\ \|\ packaged\ by\ conda\-forge\ \|)?\s*'
+    r'([\w.+]+)\s*(?:\ \|\ packaged\ by\ Anaconda,\ Inc\.\ \|)?\s*'
     r'\(#?([^,]+)'  # "(#buildno"
     r'(?:,\s*([\w ]*)'  # ", builddate"
     r'(?:,\s*([\w :]*))?)?\)\s*'  # ", buildtime)<space>"
@@ -1267,7 +1269,7 @@ _os_release_cache = None
 
 def _parse_os_release(lines):
     # These fields are mandatory fields with well-known defaults
-    # in pratice all Linux distributions override NAME, ID, and PRETTY_NAME.
+    # in practice all Linux distributions override NAME, ID, and PRETTY_NAME.
     info = {
         "NAME": "Linux",
         "ID": "linux",

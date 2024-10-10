@@ -1,0 +1,101 @@
+{
+  "build": "py310h2bbff1b_1",
+  "build_number": 1,
+  "channel": "https://repo.anaconda.com/pkgs/main/win-64",
+  "constrains": [],
+  "depends": [
+    "mkl >=2023.1.0,<2024.0a0",
+    "python >=3.10,<3.11.0a0",
+    "vc >=14.1,<15.0a0",
+    "vs2015_runtime >=14.16.27012,<15.0a0"
+  ],
+  "extracted_package_dir": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\mkl-service-2.4.0-py310h2bbff1b_1",
+  "files": [
+    "Lib/site-packages/mkl/__init__.py",
+    "Lib/site-packages/mkl/__pycache__/__init__.cpython-310.pyc",
+    "Lib/site-packages/mkl/_mklinit.cp310-win_amd64.pyd",
+    "Lib/site-packages/mkl/_py_mkl_service.cp310-win_amd64.pyd",
+    "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/PKG-INFO",
+    "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/SOURCES.txt",
+    "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/dependency_links.txt",
+    "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/top_level.txt",
+    ".nonadmin"
+  ],
+  "fn": "mkl-service-2.4.0-py310h2bbff1b_1.conda",
+  "license": "BSD-3-Clause",
+  "link": {
+    "source": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\mkl-service-2.4.0-py310h2bbff1b_1",
+    "type": 1
+  },
+  "md5": "4a86b44055fc7cb91449e93d4e4626f3",
+  "name": "mkl-service",
+  "package_tarball_full_path": "C:\\Users\\N I T R O V15\\anaconda3\\pkgs\\mkl-service-2.4.0-py310h2bbff1b_1.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "Lib/site-packages/mkl/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "d9848009d8fb138861e2149b3201d86d172c8eaf63de12b94968b78429d55f59",
+        "sha256_in_prefix": "d9848009d8fb138861e2149b3201d86d172c8eaf63de12b94968b78429d55f59",
+        "size_in_bytes": 2325
+      },
+      {
+        "_path": "Lib/site-packages/mkl/__pycache__/__init__.cpython-310.pyc",
+        "path_type": "hardlink",
+        "sha256": "158cc5d6583485f59fbbd60cb95a6fdca8f2fc79b448fd9c43c0f011ae2af545",
+        "sha256_in_prefix": "158cc5d6583485f59fbbd60cb95a6fdca8f2fc79b448fd9c43c0f011ae2af545",
+        "size_in_bytes": 1053
+      },
+      {
+        "_path": "Lib/site-packages/mkl/_mklinit.cp310-win_amd64.pyd",
+        "path_type": "hardlink",
+        "sha256": "4d832ad8531096b73c95f594c28667d17d161d5165a52153a55638b6b6e63779",
+        "sha256_in_prefix": "4d832ad8531096b73c95f594c28667d17d161d5165a52153a55638b6b6e63779",
+        "size_in_bytes": 10240
+      },
+      {
+        "_path": "Lib/site-packages/mkl/_py_mkl_service.cp310-win_amd64.pyd",
+        "path_type": "hardlink",
+        "sha256": "4e6079765096893ea0168f85480f5c7f5231b863864a54c084620830e7db86e5",
+        "sha256_in_prefix": "4e6079765096893ea0168f85480f5c7f5231b863864a54c084620830e7db86e5",
+        "size_in_bytes": 86016
+      },
+      {
+        "_path": "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "cac589e956cb7d2b0a5014dd959e4898ff26fc75f75f335e394f571a467ff965",
+        "sha256_in_prefix": "cac589e956cb7d2b0a5014dd959e4898ff26fc75f75f335e394f571a467ff965",
+        "size_in_bytes": 1718
+      },
+      {
+        "_path": "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "b3c428927de0dd1a53a2d1467b0ae7f6f090dfa58e2bdfce2152d9b3ff10f3f3",
+        "sha256_in_prefix": "b3c428927de0dd1a53a2d1467b0ae7f6f090dfa58e2bdfce2152d9b3ff10f3f3",
+        "size_in_bytes": 226
+      },
+      {
+        "_path": "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "Lib/site-packages/mkl_service-2.4.0-py3.10.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "b1e92a43fd18113ecb2c73ba36c5d080a0cf18646198ab80356f68bc5b8cd931",
+        "sha256_in_prefix": "b1e92a43fd18113ecb2c73ba36c5d080a0cf18646198ab80356f68bc5b8cd931",
+        "size_in_bytes": 4
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "8f8b76eb8e0814e82b4ca3a48649e9803253d1bf50f440ef2ba03ef98c0af119",
+  "size": 44897,
+  "subdir": "win-64",
+  "timestamp": 1682974931000,
+  "url": "https://repo.anaconda.com/pkgs/main/win-64/mkl-service-2.4.0-py310h2bbff1b_1.conda",
+  "version": "2.4.0"
+}

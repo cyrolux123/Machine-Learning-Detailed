@@ -1,0 +1,11 @@
+prefix=c:/ML Nabin/venv/Library
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libwebpdecoder
+Description: Library for the WebP graphics format (decode only)
+Version: 1.3.2
+Cflags: -I${includedir}
+Libs: -L${libdir} -llibwebpdecoder
+Libs.private:   
